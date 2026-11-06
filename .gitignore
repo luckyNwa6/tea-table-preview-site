@@ -1,0 +1,6 @@
+.agents/
+AGENTS.md
+PROJECT_MEMORY.md
+skills-lock.json
+.assetsignore
+wrangler.jsonc
