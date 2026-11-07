@@ -18,7 +18,7 @@ const builtinAssets = [
   ['茶碟·钴蓝八角', 'saucer-cobalt-octagon.png'], ['茶碟·陶土长椭圆', 'saucer-terracotta-oval.png'],
   ['桌布背景·花园', 'tablecloth-background-garden-v2.png'], ['桌布背景·鼠尾草', 'tablecloth-background-sage-v2.png'], ['详情页海报背景', 'detail-poster-background.png'], ['详情页海报背景·鼠尾草格纹', 'tablecloth-background-gingham.png'], ['BACK', 'back-calligraphy.png'], ['英文介绍·下午茶', 'intro-quiet-afternoon.png'], ['英文介绍·慢享时光', 'intro-take-your-time.png'], ['扁圆形茶面', 'tea-surface-flat-oval.png'], ['茶水流线', 'tea-stream-line.png']
 ].map(([name, file, kind]) => ({ id:kind ? `builtin-${kind}` : `builtin-${file.replace('.png', '')}`, name, kind, src:file ? `./assets/tea-v1/${file}` : '' }));
-const defaultProject = () => ({ version:1, assets:[], deletedBuiltinAssetIds:[], pages:[{id:uid(), name:'下午茶海报', items:[]}], activePage:null });
+const defaultProject = () => structuredClone(window.TEA_TABLE_DEFAULT_PROJECT || ({ version:1, assets:[], deletedBuiltinAssetIds:[], pages:[{id:uid(), name:'下午茶海报', items:[]}], activePage:null }));
 let project = JSON.parse(localStorage.getItem(KEY) || 'null') || defaultProject();
 project.activePage ||= project.pages[0]?.id;
 project.deletedBuiltinAssetIds ||= [];
